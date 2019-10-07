@@ -1,6 +1,6 @@
 package models
 
-
+import "math/big"
 
 // This class is a base class for all TDLib interface classes.
 type TonAPI struct {
@@ -8,92 +8,108 @@ type TonAPI struct {
 }
 
 type AccountAddress struct {
-
+	AccountAddress string
 }
 
 type Bip39Hints struct {
-
+	Words []string
 }
 
 type Config struct {
-
+	Config string
+	blockChainName string
+	useCallbacksForNetwork bool
+	ignoreCache bool
 }
 
 type Error struct {
-
+	Code int
+	Message string
 }
 
 type ExportedEncryptedKey struct {
-
+	Data []byte
 }
 
-type ExportedKey struct {
 
+
+type ExportedKey struct {
+	wordList []string
 }
 
 type ExportedPemKey struct {
-
+	Pem string
 }
 
 type InputKey struct {
+	// TODO: reverse Java code to understand key type
+	Key string
 
+	LocalPassword []byte
 }
 
 type Key struct {
-
+	PublicKey string
+	Secret []byte
 }
 
 type KeyStoreType struct {
-
+	// empty
 }
 
 type KeyStoreTypeDirectory struct {
-
+	Directory string
 }
 
 type KeyStoreTypeInMemory struct {
-
+	// empty
 }
 
 type LogStream struct {
-
+	// empty
 }
 
-type LogStreamDefault struct {
 
+type LogStreamDefault struct {
+	// empty
 }
 
 type LogStreamFile struct {
-
+	Path string
+	MaxFileSize big.Int
 }
 
 type LogStreamEmpty struct {
-
+	// empty
 }
 
 type LogTags struct {
-
+	Tags []string
 }
 
 type LogVerbosityLevel struct {
-
+	VerbosityLevel int
 }
 
 type Ok struct {
-
+	// empty
 }
 
 type Options struct {
-
+	Config Config
+	KeyStoreType KeyStoreType
 }
 
 
 type SendGramsResult struct {
-
+	SentUntil big.Int
 }
 
 type UnpackedAccountAddress struct {
-
+	WorkChainID int
+	Bounceble bool
+	TestNet bool
+	Addr []byte
 }
 
 type UpdateSendLiteServerQuery struct {
